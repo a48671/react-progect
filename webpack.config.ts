@@ -9,7 +9,8 @@ export default ({ port, mode }: IBuildEnv): Configuration => {
     paths: {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
       html: path.resolve(__dirname, 'public', 'index.html'),
-      output: path.resolve(__dirname, 'dist')
+      output: path.resolve(__dirname, 'dist'),
+      src: path.resolve(__dirname, 'src')
     },
     isDev: mode === 'development',
     port
