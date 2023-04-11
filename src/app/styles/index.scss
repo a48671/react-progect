@@ -9,3 +9,12 @@
   color: var(--secondary-color);
   min-height: 100vh;
 }
+
+.main-container {
+  display: flex;
+}
+
+.page-content {
+  flex-grow: 1;
+  padding: 20px;
+}

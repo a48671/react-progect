@@ -1,5 +1,5 @@
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './theme.context';
 import { useContext } from 'react';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './theme.context';
 
 type TUseThemeResult = {
   toggleTheme: VoidFunction;
@@ -13,7 +13,7 @@ export function useTheme(): TUseThemeResult {
     const newTheme = theme === Theme.NORMAL ? Theme.DARK : Theme.NORMAL;
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-  }
+  };
 
-  return { theme, toggleTheme }
+  return { theme, toggleTheme };
 }

@@ -4,6 +4,6 @@ export function classNames(cls: string, mode: TClassNamesMode = {}, restClasses:
   return [
     cls,
     ...restClasses.filter(Boolean),
-    ...Object.entries(mode).reduce((acc, [key, value]) => (!!value ? [...acc, key] : acc), [])
+    ...Object.entries(mode).reduce((acc, [key, value]) => (value ? [...acc, key] : acc), []),
   ].join(' ');
 }

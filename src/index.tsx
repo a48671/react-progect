@@ -3,6 +3,7 @@ import { App } from 'app';
 import { BrowserRouter } from 'react-router-dom';
 import 'app/styles/index.scss';
 import { ThemeProvider } from 'app/providers/theme-provider';
+import 'shared/config/i18n/i18n';
 
 render(
   <BrowserRouter>
@@ -10,5 +11,5 @@ render(
       <App />
     </ThemeProvider>
   </BrowserRouter>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

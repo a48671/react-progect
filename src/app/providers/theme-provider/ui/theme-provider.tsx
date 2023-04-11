@@ -3,16 +3,14 @@ import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/theme.conte
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.NORMAL;
 
-export const ThemeProvider = ({ children }: PropsWithChildren): JSX.Element => {
+export function ThemeProvider({ children }: PropsWithChildren): JSX.Element {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
 
-  const value = useMemo(() => {
-    return { theme, setTheme }
-  }, [theme]);
+  const value = useMemo(() => ({ theme, setTheme }), [theme]);
 
   return (
     <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
-};
+}

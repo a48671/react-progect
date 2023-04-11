@@ -1,19 +1,24 @@
 import { Suspense } from 'react';
-import { useTheme } from './providers/theme-provider';
 import { classNames } from 'shared/lib/class-names';
-import { AppRouter } from './providers/router';
 import { Navbar } from 'wigets/navbar';
+import { Sidebar } from 'wigets/sidebar';
+import { AppRouter } from './providers/router';
+import { useTheme } from './providers/theme-provider';
 
-export const App = (): JSX.Element => {
-  const { theme, toggleTheme } = useTheme();
+export function App(): JSX.Element {
+  const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <button onClick={toggleTheme}>Toggle theme</button>
-      <Navbar />
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <AppRouter />
+      <Suspense fallback="It is translating...">
+        <Navbar />
+        <div className="main-container">
+          <Sidebar />
+          <div className="page-content">
+            <AppRouter />
+          </div>
+        </div>
       </Suspense>
     </div>
   );
-};
+}

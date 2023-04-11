@@ -7,6 +7,6 @@ export function buildResolvers({ paths }: IBuildOptions): ResolveOptions {
     preferAbsolute: true,
     alias: {},
     modules: [paths.src, 'node_modules'],
-    mainFiles: ['index']
+    mainFiles: ['index'],
   });
 }
