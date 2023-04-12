@@ -1,12 +1,14 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'airbnb'
+    'airbnb',
+    'plugin:i18next/recommended'
   ],
   overrides: [
   ],
@@ -18,7 +20,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint/eslint-plugin'
+    '@typescript-eslint/eslint-plugin',
+    'i18next'
   ],
   parser: '@typescript-eslint/parser',
   rules: {
@@ -34,10 +37,12 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    'max-len': [2, 120],
+    'max-len': ['error', { ignoreComments: true, code: 150 }],
     'no-underscore-dangle': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error']
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'i18next/no-literal-string': ['error', { onlyMarkup: true }],
+    'comma-dangle': 'off',
   },
   settings: {
     react: {
